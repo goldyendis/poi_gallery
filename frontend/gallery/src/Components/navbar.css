@@ -1,0 +1,14 @@
+span {
+  color: white;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+img {
+  height: 50px;
+  padding-left: 15px;
+}
+
+.kereses {
+  border: none;
+}
