@@ -1,0 +1,8 @@
+{
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.fontFamily": "Verdana",
+        "editor.fontSize": 13
+    }
+}
