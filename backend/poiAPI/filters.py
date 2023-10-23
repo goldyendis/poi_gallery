@@ -11,4 +11,4 @@ class POIFilter(django_filters.FilterSet):
     # poicat = django_filters.ChoiceFilter(lookup_expr='icontains')
     class Meta:
         model = POI
-        fields = ['poicat', 'poitype', 'surveydate', 'img_flag', 'poiname']
+        fields = ['poicat', 'poitype', 'surveydate', 'img_flag', 'poiname','existing']
