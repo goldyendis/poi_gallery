@@ -1,14 +1,32 @@
 span {
   color: white;
   padding-left: 10px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: x-large;
+  line-height: 0.1;
 }
 
 img {
-  height: 50px;
-  padding-left: 15px;
+  height: 44px;
+  padding-top: 25px;
 }
 
-.kereses {
-  border: none;
+.my-header {
+  padding: 10px;
+  background-color: darkgreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.title-text {
+  line-height: 1.5;
+  text-align: center;
 }

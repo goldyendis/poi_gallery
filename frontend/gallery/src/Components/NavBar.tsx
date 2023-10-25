@@ -1,24 +1,24 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
+import { Layout } from "antd";
 import mtszImage from "./mtsz.png";
 import "./navbar.css";
 import Search from "./Search";
+const { Header } = Layout;
 
 function NavBar() {
   return (
     <>
-      <Navbar
-        bg="success"
-        data-bs-theme="light"
-        fixed="top"
-        className="justify-content-between"
-      >
-        <Navbar.Brand href="https://www.mtsz.org/">
-          <img alt="" src={mtszImage} />
-          <span>MTSZ POI Galéria</span>
-        </Navbar.Brand>
+      <Header className="my-header">
+        <div className="left-content">
+          <a href="https://www.mtsz.org/">
+            <img alt="" src={mtszImage} />
+          </a>
+          <div className="title-text">
+            <span>MTSZ POI Galéria</span>
+          </div>
+        </div>
         <Search />
-      </Navbar>
+      </Header>
     </>
   );
 }
