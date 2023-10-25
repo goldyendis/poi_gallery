@@ -1,14 +1,19 @@
 import { Dispatch, SetStateAction } from "react";
-import { POIData } from "../Types/PoiTypes";
+import { POIData, POI } from "../Types/PoiTypes";
+import { AxiosResponse } from "axios";
 
-export const parsePOIData = (response: any) => {
+export function parsePOIData(response: AxiosResponse<any, any>): POIData {
   const POIList: POIData = {
     meta: {
-      count: response.count,
-      next: response.next,
-      previous: response.previous,
+      count: response.data.count,
+      next: response.data.next,
+      previous: response.data.previous,
     },
-    result: [...response.results],
+    result: [...response.data.results],
   };
   return POIList;
-};
+}
+export function parsePOI(response: AxiosResponse<any, any>) {
+  const Poi: POI = { ...response.data };
+  return Poi;
+}

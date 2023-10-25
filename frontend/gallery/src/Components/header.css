@@ -6,14 +6,18 @@ span {
   line-height: 0.1;
 }
 
-img {
-  height: 44px;
-  padding-top: 25px;
+.logo-img {
+  height: 64px;
+  padding: 4px;
+}
+.logo-link {
+  display: flex;
+  align-items: center;
 }
 
 .my-header {
   padding: 10px;
-  background-color: darkgreen;
+  background-color: #388e3c;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,11 +26,5 @@ img {
 .left-content {
   display: flex;
   align-items: center;
-  padding: 5px;
-  margin-left: 5px;
-}
-
-.title-text {
-  line-height: 1.5;
-  text-align: center;
+  margin-left: 15px;
 }

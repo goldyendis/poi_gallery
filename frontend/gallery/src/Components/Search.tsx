@@ -4,7 +4,7 @@ import { Button } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import { Layout, Menu, Input, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import "./navbar.css";
+import "./header.css";
 
 function Search() {
   const [searchValue, setSearchValue] = useState<string | null>(null);
