@@ -15,7 +15,7 @@ function Search() {
 
   const handleSearch = () => {
     console.log("SEARŰCH BUTTON");
-    const url = `http://127.0.0.1:8000/poi/?search=${searchValue}`;
+    const url = `http://127.0.0.1:8000/surveypoi/poi/?search=${searchValue}`;
     fetch(url)
       .then((response) => {
         if (!response.ok) {

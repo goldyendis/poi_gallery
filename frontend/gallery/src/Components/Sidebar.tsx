@@ -8,7 +8,7 @@ export default function Sidebar() {
   return (
     <Sider
       className=""
-      width={"25vw"}
+      width={"15vw"}
       style={{ backgroundColor: "#C8E6C9", height: "100vh" }}
     ></Sider>
   );

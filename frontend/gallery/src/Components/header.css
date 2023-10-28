@@ -1,14 +1,21 @@
 span {
   color: white;
-  padding-left: 10px;
+  padding-left: 0;
   font-weight: 700;
   font-size: x-large;
   line-height: 0.1;
 }
 
+@media (max-width: 576px) {
+  span {
+    font-size: large;
+  }
+}
+
 .logo-img {
   height: 64px;
   padding: 4px;
+  margin-right: 4px;
 }
 .logo-link {
   display: flex;
@@ -26,5 +33,5 @@ span {
 .left-content {
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  margin-left: 2%;
 }
