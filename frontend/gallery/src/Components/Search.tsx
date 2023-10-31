@@ -1,6 +1,4 @@
-import React, { ChangeEventHandler, useState } from "react";
-// import { Form, InputGroup } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { Layout, Menu, Input, Space } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
@@ -40,7 +38,7 @@ function Search() {
             onClick={handleSearch}
           />
         }
-        placeholder="Keresés a POI nevében"
+        placeholder="Keresés"
         onChange={handleChange}
       />
     </div>

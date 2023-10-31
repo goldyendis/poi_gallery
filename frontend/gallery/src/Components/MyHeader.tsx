@@ -1,4 +1,3 @@
-import React from "react";
 import { Layout } from "antd";
 import mtszImage from "./mtsz.png";
 import "./header.css";

@@ -1,23 +1,41 @@
 .content {
-  background-color: ghostwhite;
+  background-color: rgb(25, 88, 88);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  background-color: rgb(25, 88, 88);
+}
+
+.content a {
+  width: 16%;
+}
+
+.ant-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }
 .small-card {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  width: 14%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  width: 100%;
   height: 30vh;
-  margin: 1%;
-  object-fit: cover;
+  margin: 0.5%;
   position: relative;
 }
 
 .card-image {
   max-height: 100%;
   max-width: 100%;
-  width: 100%;
-  height: 67%;
+  height: 75%;
   position: absolute;
   top: 0;
-  bottom: 33%;
+  bottom: 25%;
   left: 0;
   right: 0;
   margin-top: auto;
@@ -25,38 +43,71 @@
 }
 
 .card-text {
-  display: flex;
   position: absolute;
-  top: 70%;
+  top: 75%;
   left: 0;
+  display: block;
   overflow: hidden;
   margin: 0;
-  padding: 0;
+  padding: 5px;
   line-height: 1;
 }
-@media (max-width: 576px) {
-  .small-card {
-    width: 46%; /* 100% width on screens <= 576px */
+h4 {
+  margin: 0px 0px 3px 0px;
+}
+h6 {
+  margin: 0;
+}
+
+@media (max-width: 380px) {
+  .content a {
+    width: 96%;
+  }
+}
+
+@media (min-width: 380px) and (max-width: 576px) {
+  .content a {
+    width: 46%;
   }
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-  .small-card {
-    width: 28%; /* 50% width on screens between 577px and 768px */
+  .content a {
+    width: 28%;
   }
 }
-@media (min-width: 769px) and (max-width: 992px) {
-  .small-card {
+@media (min-width: 769px) and (max-width: 1072px) {
+  .content a {
     width: 20.5%;
   }
 }
-@media (min-width: 992px) and (max-width: 1200px) {
-  .small-card {
-    width: 17%;
+@media (min-width: 1400px) {
+  .content a {
+    width: 12%;
   }
 }
 @media (max-height: 570px) {
-  .small-card {
+  .content a {
     height: 42vh;
   }
 }
+
+@media (min-height: 570px) and (max-height: 710px) {
+  .content a {
+    height: 35vh;
+  }
+}
+/* Landscape-oriented screens */
+/* @media screen and (orientation: landscape) { */
+/* Apply styles for landscape screens */
+/* } */
+
+/* Portrait-oriented screens */
+/* @media screen and (orientation: portrait) { */
+/* Apply styles for portrait screens */
+/* } */
+
+/* Custom aspect ratio (16:9) */
+/* @media screen and (min-aspect-ratio: 16/9) { */
+/* Apply styles for screens with a 16:9 aspect ratio or wider */
+/* } */

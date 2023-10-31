@@ -15,6 +15,15 @@ type ImagesSource = {
   height: number;
 };
 
+class geoPoint {
+  x: number;
+  y: number;
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
 export type POI = {
   objectid: number;
   surveydate: string;
@@ -29,5 +38,6 @@ export type POI = {
   thumbnail: string | "";
   notes: string;
   shape: string;
+  coordinates: geoPoint;
   images_list: string[];
 };
