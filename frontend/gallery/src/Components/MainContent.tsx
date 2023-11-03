@@ -1,52 +1,50 @@
 import "./maincontent.css";
-
-import { Layout, Row, Spin } from "antd";
+import { Col, Layout, Row } from "antd";
 import axios from "axios";
 import { POI, POIData } from "../Types/PoiTypes";
 import { parsePOIData } from "../utils/poi_data";
 import POICard from "./POICard";
 import { useQuery } from "@tanstack/react-query";
-import Pagination from "./Pagination";
 import { backendURL } from "../utils/urls_development";
+import Spinner from "./Spinner";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import MyPagination from "./Pagination";
 const { Content } = Layout;
 
-const fetchInitialPOIData = async () => {
-  const url = backendURL + "/poi/";
-  const response = await axios.get(url);
+const fetchPOIList = async (url?: string) => {
+  console.log(backendURL + "/poi/" + url);
+  const response = await axios.get(backendURL + "/poi/" + url);
   const parsedData: POIData = parsePOIData(response);
+  console.log(parsedData);
   return parsedData;
 };
-
 export default function MainContent() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  let queryString = "?";
+  for (const entry of searchParams.entries()) {
+    queryString = queryString + `${entry[0]}=${entry[1]}&`;
+  }
+
   const { isLoading, data } = useQuery({
-    queryKey: ["/"],
-    queryFn: fetchInitialPOIData,
+    queryKey: [queryString],
+    queryFn: () => fetchPOIList(queryString),
   });
 
   if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          width: "100%",
-          height: "100vh",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Spin size="large" />
-      </div>
-    );
+    return <Spinner />;
   }
 
   return (
-    <Content className="content">
-      <Row>
-        {data?.result.map((poi: POI, index: number) => {
-          return <POICard poi={poi} key={poi.objectid} />;
-        })}
-      </Row>
-    </Content>
+    <>
+      <MyPagination count={data!.meta.count !== null ? data?.meta.count : 0} />
+      <Content className="content">
+        <Row gutter={[16, 16]}>
+          {data?.result.map((poi: POI, index: number) => {
+            return <POICard poi={poi} key={poi.objectid} />;
+          })}
+        </Row>
+      </Content>
+    </>
   );
 }

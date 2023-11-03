@@ -5,6 +5,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100vh;
+  min-width: 360px;
 }
 :root {
   --media-small: 576px;

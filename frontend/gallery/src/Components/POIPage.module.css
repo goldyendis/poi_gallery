@@ -1,0 +1,17 @@
+.myContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.myh5 {
+  font-size: 15px;
+  padding: 1px;
+  margin: 0px;
+  font-weight: 700;
+}
+.myh6 {
+  font-size: 14px;
+  padding: 1px;
+  margin: 0px;
+  color: darkslategrey;
+}

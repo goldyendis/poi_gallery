@@ -10,7 +10,6 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer.js";
 import Graphic from "@arcgis/core/Graphic.js";
 import { PiMapPinLineFill } from "react-icons/pi";
 import { renderToString } from "react-dom/server";
-import { useQuery } from "@tanstack/react-query";
 
 function POIMap({ coordinates }: POI) {
   const pinSvg = renderToString(
@@ -49,18 +48,18 @@ function POIMap({ coordinates }: POI) {
       graphicLayer.add(pinGraphich);
       map.add(graphicLayer);
     });
-  }, []);
+  });
 
   return (
     <div
       id="viewDiv"
       style={{
-        width: "33%",
-        height: "50vh",
+        width: "35%",
+        height: "60vh",
+        margin: "5px",
         position: "absolute",
         top: "0",
         right: "0",
-        margin: "10px",
       }}
     ></div>
   );

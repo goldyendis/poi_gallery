@@ -1,5 +1,3 @@
-import { ImageSource } from "yet-another-react-lightbox/*";
-
 export type POIData = {
   meta: {
     count: number | null;
@@ -7,12 +5,6 @@ export type POIData = {
     previous: string | null;
   };
   result: POI[];
-};
-
-type ImagesSource = {
-  src: string;
-  width: number;
-  height: number;
 };
 
 class geoPoint {
@@ -41,3 +33,41 @@ export type POI = {
   coordinates: geoPoint;
   images_list: string[];
 };
+
+export class POICategories {
+  catNum: number;
+  catAlias: string;
+  constructor(catNum: number, catAlias: string) {
+    this.catNum = catNum;
+    this.catAlias = catAlias;
+  }
+}
+
+export class POIType {
+  typeNum: number;
+  typeAlias: string;
+  catNum: number;
+  constructor(typeNum: number, typeAlias: string, catNum: number) {
+    this.typeNum = typeNum;
+    this.typeAlias = typeAlias;
+    this.catNum = catNum;
+  }
+}
+
+export class FilterData {
+  categories: POICategories[];
+  types: POIType[];
+  constructor(categories: POICategories[], types: POIType[]) {
+    this.categories = categories;
+    this.types = types;
+  }
+}
+
+export class FilterQuery {
+  categories: number;
+  types: number[];
+  constructor(categories: number, types: number[]) {
+    this.categories = categories;
+    this.types = types;
+  }
+}

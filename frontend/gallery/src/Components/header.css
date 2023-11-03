@@ -1,12 +1,4 @@
-span {
-  color: white;
-  padding-left: 0;
-  font-weight: 700;
-  font-size: x-large;
-  line-height: 0.1;
-}
-
-@media (min-width: 380px) and (max-width: 576px) {
+/* @media (min-width: 380px) and (max-width: 576px) {
   span {
     font-size: large;
   }
@@ -15,7 +7,7 @@ span {
   span {
     font-size: medium;
   }
-}
+} */
 
 .logo-img {
   height: 64px;
@@ -40,4 +32,9 @@ span {
   display: flex;
   align-items: center;
   margin-left: 2%;
+  color: white;
+  padding-left: 0;
+  font-weight: 700;
+  font-size: x-large;
+  line-height: 1;
 }

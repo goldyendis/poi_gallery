@@ -1,16 +1,14 @@
-from itertools import chain
-from django.shortcuts import render
-from django.db.models import QuerySet
-
-# Create your views here.
+from django.db.models import Min, Max
+from django.db.models import Q
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from backend.throttle import AnonymousThrottle
-from poiAPI.domain_const import POICAT
+from poiAPI.domain_const import POICAT, POITYPE
+# from poiAPI.filters import POIFilter
 from .pagination import ItemPagination
-from .filters import POIFilter
+# from .filters import POIFilter
 from .models import POI
 from .serializers import POIFilterValuesSerializer, POISerializer, POIListItemSerializer
 from django_filters import rest_framework as filters
@@ -20,10 +18,39 @@ class POIList(generics.ListAPIView):
     serializer_class = POIListItemSerializer
     throttle_classes = [AnonymousThrottle]
     filter_backends = [filters.DjangoFilterBackend, drf_filters.SearchFilter]
-    filterset_class = POIFilter
+    # filter = POIFilter
     search_fields = ["poiname","notes"]
     pagination_class = ItemPagination
     queryset = POI.objects.all().order_by('objectid').exclude(img_url__isnull=True)
+
+    def get_queryset(self):
+        queryset = self.queryset
+        poicat = self.request.query_params.getlist('poicat')
+        poitypesstr  = self.request.query_params.getlist('poitype')
+        if not poicat and not poitypesstr:
+            return self.queryset
+
+        if poicat and poitypesstr:
+            test = poicat[0]
+            t = test.split(",")
+            poicats = [int(item) for item in t]
+            test = poitypesstr[0]
+            t = test.split(",")
+            poitypes = [int(item) for item in t]
+            queryset = queryset.filter(Q(poicat__in=poicats) | Q(poitype__in=poitypes))
+            return queryset
+        if poitypesstr:
+            test = poitypesstr[0]
+            t = test.split(",")
+            poitypes = [int(item) for item in t]
+            queryset = queryset.filter(poitype__in=poitypes )
+            return queryset
+        if poicat:
+            test = poicat[0]
+            t = test.split(",")
+            poicats = [int(item) for item in t]
+            queryset = queryset.filter(poicat__in=poicats)
+            return queryset
 
 
 
@@ -38,12 +65,33 @@ class POIDetail(generics.RetrieveAPIView):
 class POIFilterValuesPOIType(generics.ListAPIView):
     serializer_class=POIFilterValuesSerializer
     def get_queryset(self):
-        query = POI.objects.all().exclude(poitype__isnull=True).distinct('poitype',"poicat")
+        query = (
+            POI.objects
+            .exclude(poitype__isnull=True)
+            .values('poicat', 'poitype')
+            .distinct()
+        )
+        
         cat_list = set()
         type_list = set()
-        for i in range(0,len(query)):
-            cat_list.add(query[i].poicat)
-            type_list.add(query[i].poitype)
-        return [{"poicat":list(cat_list),"poitype":list(type_list)}]
-        # return [{"poicat":[{(list(cat_list), POICAT[int(cat_list_item)]) for cat_list_item in list(cat_list)}],"poitype":list(type_list)}]
-    
+        
+        for item in query:
+            cat_list.add(item['poicat'])
+            type_list.add(item['poitype'])
+        
+        result = [
+            {
+                "poicat": {
+                    cat: POICAT[int(cat)] for cat in list(cat_list)
+                },
+                "poitype": {
+                    ptype: POITYPE[int(ptype)] for ptype in list(type_list)
+                }
+                ,
+                "min_surveydate": POI.objects.aggregate(min_surveydate=Min('surveydate'))['min_surveydate'],
+                "max_surveydate": POI.objects.aggregate(max_surveydate=Max('surveydate'))['max_surveydate']
+            }
+        ]
+
+        return result
+

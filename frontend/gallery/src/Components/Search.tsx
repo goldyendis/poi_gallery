@@ -1,45 +1,33 @@
-import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import { Layout, Menu, Input, Space } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
-import "./header.css";
+import { Input } from "antd";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Search() {
-  const [searchValue, setSearchValue] = useState<string | null>(null);
-
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
 
-  const handleSearch = () => {
-    console.log("SEARŰCH BUTTON");
-    const url = `http://127.0.0.1:8000/surveypoi/poi/?search=${searchValue}`;
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Request failed with status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => {
-        console.error(`Error: ${error.message}`);
-      });
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      let searchParams = new URLSearchParams();
+      searchParams.set("search", searchValue);
+      navigate(`?${searchParams}`);
+    }
   };
+
   return (
     <div style={{ float: "right", width: "30%", paddingRight: "20px" }}>
       <Input
         style={{ padding: "6px 2px" }}
         prefix={
-          <FaSearch
-            style={{ color: "grey", height: "22px" }}
-            onClick={handleSearch}
-          />
+          <FaSearch style={{ color: "grey", height: "22px", margin: "2px" }} />
         }
         placeholder="Keresés"
         onChange={handleChange}
+        onKeyDown={handleEnter}
       />
     </div>
   );

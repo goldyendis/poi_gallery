@@ -2,7 +2,6 @@ import { Layout } from "antd";
 import MainContent from "./MainContent";
 import MyHeader from "./MyHeader";
 import Sidebar from "./Sidebar";
-import MyPagination from "./Pagination";
 
 export default function Home() {
   return (
@@ -11,7 +10,6 @@ export default function Home() {
       <Layout>
         <Sidebar />
         <Layout>
-          <MyPagination />
           <MainContent />
         </Layout>
       </Layout>
