@@ -1,3 +1,0 @@
-\\192.168.121.2\images
-ARCGIS\Rendszergazda
-Mtsz001

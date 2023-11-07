@@ -8,7 +8,7 @@ type MyPaginationProp = {
 };
 
 function MyPagination({ count }: MyPaginationProp) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   let pageNum =
     searchParams.get("page") === null ? 1 : parseInt(searchParams.get("page")!);
   const navigate = useNavigate();

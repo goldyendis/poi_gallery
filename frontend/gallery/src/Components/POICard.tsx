@@ -15,7 +15,12 @@ function POICard({ poi }: POICardProps) {
           className="small-card"
           hoverable
           cover={
-            <img className="card-image" src={poi.thumbnail} loading="lazy" />
+            <img
+              className="card-image"
+              src={poi.thumbnail}
+              loading="lazy"
+              alt=""
+            />
           }
         >
           <div className="card-text">

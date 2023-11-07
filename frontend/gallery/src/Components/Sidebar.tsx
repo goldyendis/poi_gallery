@@ -3,26 +3,26 @@ import { Layout } from "antd";
 import axios from "axios";
 import { backendURL } from "../utils/urls_development";
 import { getTypesInCategory, parseFilterData } from "../utils/poi_data";
-import { FilterData, FilterQuery, POIType } from "../Types/PoiTypes";
+import { FilterData, FilterQuery } from "../Types/PoiTypes";
 import styles from "./Sidebar.module.css";
 import Spinner from "./Spinner";
 import { useEffect, useState } from "react";
 import CategoryMenuItem from "./CategoryMenuItem";
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import TypeMenuItem from "./TypeMenuItem";
 import { BiFilterAlt } from "react-icons/bi";
 
 const { Sider } = Layout;
 
 const fetchFilterValues = async () => {
-  const response = await axios.get(backendURL + "/poi/filter/");
+  const response = await axios.get(backendURL + "/filter/");
   const parsedData: FilterData = parseFilterData(response);
   return parsedData;
 };
 
 export default function Sidebar() {
   const [selectedFilters, setSelectedFilters] = useState<FilterQuery[]>([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   let poiTypeParam = searchParams.getAll("poitype");
   const navigate = useNavigate();
 

@@ -7,8 +7,7 @@ body {
   height: 100vh;
   min-width: 360px;
 }
-:root {
-  --media-small: 576px;
-  --media-medium: 768px;
-  --media-large: 992px;
+root {
+  width: 400px;
+  height: 400px;
 }

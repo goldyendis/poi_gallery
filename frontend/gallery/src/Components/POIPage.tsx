@@ -4,7 +4,7 @@ import POIMap from "./POIMap";
 import axios from "axios";
 import { parsePOI } from "../utils/poi_data";
 import { useQuery } from "@tanstack/react-query";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { POI } from "../Types/PoiTypes";
 import { backendURL } from "../utils/urls_development";
 import Spinner from "./Spinner";

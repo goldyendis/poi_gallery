@@ -59,8 +59,6 @@ export function getTypesInCategory(
     (poitype) => poitype.catNum === categoryNumber
   );
   let typeNumbers: number[] = [];
-  poitypesSame.map((poitype, index) => {
-    typeNumbers.push(poitype.typeNum);
-  });
+  poitypesSame.map((poitype, index) => typeNumbers.push(poitype.typeNum));
   return typeNumbers;
 }
