@@ -8,13 +8,12 @@ import SpatialReference from "@arcgis/core/geometry/SpatialReference.js";
 import PictureMarkerSymbol from "@arcgis/core/symbols/PictureMarkerSymbol.js";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer.js";
 import Graphic from "@arcgis/core/Graphic.js";
-import { PiMapPinLineFill } from "react-icons/pi";
 import { renderToString } from "react-dom/server";
+import "./poidetails.css";
+import Pin from "./Icons/Pin";
 
 function POIMap({ coordinates }: POI) {
-  const pinSvg = renderToString(
-    <PiMapPinLineFill style={{ color: "rgb(0, 31, 172)" }} />
-  );
+  const pinSvg = renderToString(<Pin />);
   const pinSymbol = new PictureMarkerSymbol({
     url: `data:image/svg+xml;base64,${btoa(pinSvg)}`,
     width: 30,
@@ -29,7 +28,7 @@ function POIMap({ coordinates }: POI) {
   useEffect(() => {
     const map = new Map();
     const view = new MapView({
-      container: "viewDiv",
+      container: "viewDivPoi",
       center: centerPoint,
       zoom: 13,
       map: map,
@@ -50,19 +49,7 @@ function POIMap({ coordinates }: POI) {
     });
   });
 
-  return (
-    <div
-      id="viewDiv"
-      style={{
-        width: "35%",
-        height: "60vh",
-        margin: "5px",
-        position: "absolute",
-        top: "0",
-        right: "0",
-      }}
-    ></div>
-  );
+  return <div id="viewDivPoi" className="map-POI"></div>;
 }
 
 export default POIMap;

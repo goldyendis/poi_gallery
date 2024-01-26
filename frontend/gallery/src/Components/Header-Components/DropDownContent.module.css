@@ -1,0 +1,68 @@
+.customMenu {
+  position: fixed; /* or 'absolute' depending on your layout */
+  top: 90px;
+  left: 40px;
+  width: 300px;
+  height: 425px;
+  background-color: black;
+  z-index: 1000;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.dropdown_btnFilter {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  line-height: 1;
+  height: 30px;
+  font-size: medium;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px 10px 15px;
+  width: 90%;
+}
+.dropdown_disabledbtn {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 16px;
+  line-height: 1;
+  height: 30px;
+  font-size: medium;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px 10px 15px;
+  width: 90%;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.dropdown_btnFilter:hover {
+  border: 2px solid blue;
+  height: 28px;
+  cursor: pointer;
+}
+
+.buttonText {
+  font-weight: 800;
+  padding: 3px;
+}
+.ulCategory {
+  list-style: none;
+  margin-block-start: 0.2rem;
+  margin-inline-start: 0.5rem;
+  margin-inline-end: 0.5rem;
+  padding-inline-start: 0.2rem;
+  padding-inline-end: 0.2rem;
+  margin-block-end: 0;
+}
+.ulType {
+  list-style: none;
+  margin-block-start: 0rem;
+  margin-inline-start: 0rem;
+  margin-inline-end: 0rem;
+  padding-inline-start: 0rem;
+  padding-inline-end: 0rem;
+  margin-block-end: 0;
+}

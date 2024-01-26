@@ -1,19 +1,22 @@
-import "./App.css";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import POIPage from "./Components/POIPage";
-import Home from "./Components/Home";
+import { Suspense, lazy } from "react";
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
+const POIPage = lazy(() => import("./Components/POIPage"));
+const Home = lazy(() => import("./Components/Home"));
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Routes>
-          <Route path="poigallery/" element={<Home />} />
-          <Route path="/poi/:id" element={<POIPage />} />
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path="poigallery/" element={<Home isMap={false} />} />
+            <Route path="poigallery/map/" element={<Home isMap={true} />} />
+            <Route path="poigallery/poi/:id" element={<POIPage />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </QueryClientProvider>
   );

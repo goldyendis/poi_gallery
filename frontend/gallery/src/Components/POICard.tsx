@@ -1,7 +1,6 @@
-import { Card, Col } from "antd";
 import { POI } from "../Types/PoiTypes";
 import { Link } from "react-router-dom";
-import "./maincontent.css";
+import styles from "./POICard.module.css";
 
 type POICardProps = {
   poi: POI;
@@ -9,27 +8,27 @@ type POICardProps = {
 
 function POICard({ poi }: POICardProps) {
   return (
-    <Col xs={12} sm={8} md={6} lg={4} xl={3}>
-      <Link to={`/poi/${poi.objectid}`}>
-        <Card
-          className="small-card"
-          hoverable
-          cover={
-            <img
-              className="card-image"
-              src={poi.thumbnail}
-              loading="lazy"
-              alt=""
-            />
-          }
-        >
-          <div className="card-text">
+    <div className={styles.column}>
+      <Link
+        to={`/poigallery/poi/${poi.objectid}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.cardLink}
+      >
+        <div className={styles.smallCard}>
+          <img
+            className={styles.cardImage}
+            src={poi.thumbnail}
+            alt=""
+            loading="lazy"
+          />
+          <div className={styles.cardText}>
             <h4>{poi.poicat_alias}</h4>
             <h6>{poi.poitype_alias}</h6>
           </div>
-        </Card>
+        </div>
       </Link>
-    </Col>
+    </div>
   );
 }
 

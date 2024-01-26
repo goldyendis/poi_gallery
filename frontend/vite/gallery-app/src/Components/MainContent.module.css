@@ -1,0 +1,72 @@
+.contentActive,
+.contentInactive {
+  background-color: rgb(25, 88, 88);
+  padding-top: 5px;
+  width: 100vw;
+}
+.contentActive {
+  height: auto;
+  overflow: visible;
+}
+
+.contentInactive {
+  visibility: hidden;
+  height: 0px;
+  overflow: hidden;
+}
+
+.customGrid {
+  position: relative;
+  top: 95px;
+  left: 0px;
+  margin-inline-end: 1.25rem;
+  margin-inline-start: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.customGridInactive {
+  display: none;
+}
+.moreDataDiv {
+  width: 15rem;
+  height: 30px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.btnFilter {
+  padding: 0px 5px;
+  margin: 5px 5px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 12px;
+  width: 100%;
+  height: 30px;
+  border: 2px solid darkgray;
+}
+
+.btnFilter span,
+.btnFilter svg {
+  font-size: 16px;
+  font-weight: bolder;
+  color: white;
+}
+.btnFilter span {
+  padding: 2px 10px 0px 10px;
+}
+
+.btnFilter:hover {
+  box-shadow: 0px 0px 3px rgb(255, 255, 255);
+  border: 2px solid blue;
+}

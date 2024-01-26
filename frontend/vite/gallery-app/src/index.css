@@ -1,0 +1,8 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(25, 88, 88);
+  margin: 0;
+  width: 100vw;
+  min-width: 360px;
+  overflow-x: hidden;
+}

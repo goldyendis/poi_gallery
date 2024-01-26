@@ -1,0 +1,8 @@
+#galleryView {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+#mapView {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}

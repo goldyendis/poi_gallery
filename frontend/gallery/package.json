@@ -4,34 +4,38 @@
   "private": true,
   "dependencies": {
     "@arcgis/core": "^4.28.3",
-    "@mui/icons-material": "^5.14.14",
-    "@mui/material": "^5.14.14",
+    "@esri/calcite-components": "^1.11.0",
     "@tanstack/react-query": "^5.0.5",
     "@tanstack/react-query-devtools": "^5.4.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/leaflet.markercluster": "^1.5.4",
     "@types/node": "^16.18.59",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
-    "antd": "^5.10.2",
     "axios": "^1.5.1",
-    "bootstrap": "^5.3.2",
-    "esri-loader": "^3.7.0",
+    "esri-leaflet": "^3.0.12",
+    "esri-leaflet-vector": "^4.2.3",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
     "react": "^18.2.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.11.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-leaflet": "^4.2.1",
     "react-query": "^3.39.3",
     "react-router": "^6.17.0",
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
+    "source-map-explorer": "^2.5.3",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "yet-another-react-lightbox": "^3.14.0"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -56,7 +60,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/esri-leaflet": "^3.0.3"
   },
   "homepage": "https://turistaterkepek.hu/poigallery/"
 }

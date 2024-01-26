@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Map with Esri Vector Tiles</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <!-- Esri-Leaflet and Esri-Leaflet-Vector CSS (if any) can be included here -->
+
+    <style>
+        #map {
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet"></script>
+    <script src="https://unpkg.com/esri-leaflet-vector"></script>
+
+    <script>
+        // Your JavaScript code goes here
+        function init(container) {
+            console.log("init");
+
+            if (!container) return null;
+            if (container._leafletMap) {
+                return container._leafletMap;
+            }
+
+            const map = L.map(container).setView([47, 19.5], 8);
+            L.esri.Vector.vectorTileLayer(
+                "https://turistaterkepek.hu/portal/sharing/rest/content/items/8886b0940476436591b0bbe4f01d7185/resources/styles/root.json",
+                {}
+            ).addTo(map);
+
+            container._leafletMap = map;
+
+            return map;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            init(document.getElementById('map'));
+        });
+    </script>
+</body>
+</html>

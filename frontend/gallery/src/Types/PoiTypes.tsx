@@ -6,15 +6,29 @@ export type POIData = {
   };
   result: POI[];
 };
+export type POIMapData = {
+  meta: {
+    count: number | null;
+    next: string | null;
+    previous: string | null;
+  };
+  result: mapPOIData[];
+};
 
 class geoPoint {
   x: number;
   y: number;
-  constructor(x: number, y: number) {
-    this.x = x;
-    this.y = y;
+  constructor(coord: number[]) {
+    this.x = coord[0];
+    this.y = coord[1];
   }
 }
+
+export type mapPOIData = {
+  o: number;
+  poitype: string;
+  coordinates: number[];
+};
 
 export type POI = {
   objectid: number;
@@ -54,20 +68,8 @@ export class POIType {
   }
 }
 
-export class FilterData {
-  categories: POICategories[];
-  types: POIType[];
-  constructor(categories: POICategories[], types: POIType[]) {
-    this.categories = categories;
-    this.types = types;
-  }
-}
-
-export class FilterQuery {
-  categories: number;
-  types: number[];
-  constructor(categories: number, types: number[]) {
-    this.categories = categories;
-    this.types = types;
-  }
-}
+export type popUp = {
+  objectid: number;
+  thumbnail: string;
+  title: string;
+};

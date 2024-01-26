@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="MTSZ POI Galéria" />
+    <title>MTSZ POI Galéria</title>
+    <link rel="icon" type="image/x-icon" href="mtsz.ico" />
+    <link rel="preconnect" href="https://turistaterkepek.hu" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Esri Leaflet and Esri Leaflet Vector -->
+    <script src="https://unpkg.com/esri-leaflet/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-vector@4/dist/esri-leaflet-vector.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var map = L.map("map").setView([47, 19.5], 8);
+
+      L.esri.Vector.vectorTileLayer("06a915134cfc46508938c110d2a8e8ef", {
+        portalUrl: "https://turistaterkepek.hu/portal/",
+      }).addTo(map);
+    </script>
+  </body>
+</html>

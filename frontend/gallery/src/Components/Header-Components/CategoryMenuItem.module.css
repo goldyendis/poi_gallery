@@ -1,0 +1,33 @@
+.divCategory {
+  cursor: pointer;
+  background-color: hsla(0, 0%, 100%, 0.35);
+  border-radius: 8px;
+  margin: 5px 5px;
+}
+.divCategory:hover {
+  background-color: black;
+  border: 2px solid white;
+}
+.divCategory:last-child {
+  border-bottom: 0;
+}
+.mainCategory {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  text-wrap: pretty;
+  font-weight: 700;
+  color: beige;
+  height: 35px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1;
+  font-size: medium;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+}

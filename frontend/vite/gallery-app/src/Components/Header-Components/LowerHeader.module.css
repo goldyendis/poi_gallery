@@ -1,0 +1,15 @@
+.lowerHeader {
+  display: flex;
+  width: 100vw;
+  background-color: #5fa162;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftBtns {
+  display: flex;
+}
+.groupViewRadio {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}

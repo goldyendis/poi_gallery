@@ -1,0 +1,40 @@
+.myHeader {
+  padding: 0px 0px;
+  display: flex;
+  background-color: rgb(25, 88, 88);
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  height: fit-content;
+  line-height: 1;
+  position: fixed;
+  z-index: 1;
+}
+.upperHeader {
+  padding: 3px 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  background-color: #388e3c;
+  height: 48px;
+  align-items: center;
+}
+.leftContent {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding-left: 0;
+  font-weight: 700;
+  font-size: x-large;
+  line-height: 1;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+.logoImg {
+  height: 48px;
+  width: 48px;
+  margin-right: 4px;
+}

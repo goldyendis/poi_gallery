@@ -6,7 +6,6 @@ export default function POIDetailsList(poi: POI) {
     <div
       style={{
         width: "33%",
-        // height: "30%",
         position: "absolute",
         bottom: "0",
         right: "0",

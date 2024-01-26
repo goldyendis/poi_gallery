@@ -1,0 +1,64 @@
+.column {
+  padding: 3px;
+
+  @media (max-width: 576px) {
+    width: calc((100% - 12px) / 2);
+  }
+  @media (min-width: 576px) {
+    width: calc((100% - 18px) / 3);
+  }
+  @media (min-width: 768px) {
+    width: calc((100% - 24px) / 4);
+  }
+  @media (min-width: 992px) {
+    width: calc((100% - 36px) / 6);
+  }
+  @media (min-width: 1200px) {
+    width: calc((100% - 48px) / 8);
+  }
+}
+.smallCard {
+  border: 2px solid black;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  width: 98%;
+  height: 30vh;
+  position: relative;
+}
+.smallCard:hover {
+  border: 2px solid white;
+}
+.cardImage {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0%;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  object-fit: fill;
+}
+
+.cardText {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 4px;
+  line-height: 1;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+h4 {
+  margin: 0px 4px 2px 0px;
+  line-height: 1;
+  color: black;
+}
+h6 {
+  margin: 0px 4px 0px 0px;
+  color: black;
+}

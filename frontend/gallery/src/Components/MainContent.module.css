@@ -1,0 +1,36 @@
+.contentActive,
+.contentInactive {
+  background-color: rgb(25, 88, 88);
+  padding-top: 5px;
+  width: 100vw;
+}
+.contentActive {
+  visibility: initial;
+  height: auto;
+  overflow: visible;
+}
+
+.contentInactive {
+  visibility: hidden;
+  height: 0px;
+  overflow: hidden;
+}
+
+.customGrid {
+  position: relative;
+  top: 95px;
+  left: 0px;
+  margin-inline-end: 1.25rem;
+  margin-inline-start: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.customGridInactive {
+  display: none;
+}
+.moreDataDiv {
+  visibility: hidden;
+  width: 100vw;
+  height: 30px;
+}

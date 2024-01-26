@@ -1,0 +1,28 @@
+.btnFilter {
+  padding: 0px 15px;
+  margin: 5px 10px;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 12px;
+  width: fit-content;
+  height: 30px;
+  color: #ffffff;
+  border: 2px solid darkgray;
+}
+
+.btnFilter span,
+.btnFilter svg {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+.btnFilter span {
+  padding: 0px 7px;
+}
+
+.btnFilter:hover {
+  box-shadow: 0px 0px 3px rgb(255, 255, 255);
+  border: 2px solid blue;
+}

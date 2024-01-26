@@ -30,17 +30,15 @@ function POIPage() {
   if (data !== undefined) {
     return (
       <div className={styles.myContainer}>
-        <div style={{ flex: "1" }}>
-          <POIImageSlide images_list={data?.images_list} />
-          <div style={{ flex: "1" }}>
-            <POIMap {...data} />
-            <POIDetailsList {...data} />
-          </div>
+        <POIImageSlide images_list={data?.images_list} />
+        <div>
+          <POIMap {...data} />
+          <POIDetailsList {...data} />
         </div>
       </div>
     );
   } else {
-    return <h1>ERROR</h1>;
+    return <h1>A kért POI nem található!</h1>;
   }
 }
 
